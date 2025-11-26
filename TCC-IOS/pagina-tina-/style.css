@@ -1,0 +1,266 @@
+                                        /* --- RESET E ESTILOS GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    filter: brightness(0.95) contrast(1.1);
+    
+                                   /* Fundo que se mistura com a imagem */
+    background: linear-gradient(135deg, #02050b 0%, #050b1e 50%, #02050b 100%);
+    color: white;
+    overflow-x: hidden;
+}
+
+                                      /* --- HEADER / MENU (AGORA FIXO E AZUL) --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    
+    position: fixed; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    
+    background-color: #081534; 
+    z-index: 100; 
+}
+
+.logo-container {
+    width: 150px; 
+}
+.logo-container img {
+    width: 100%;
+    display: block;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-shadow: none; 
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #a855f7;
+}
+
+                                        /* --- 1. BANNER INICIAL (MAIS LONGO) --- */
+.banner-inicial {
+    width: 100%;
+    height: 140vh; 
+    padding-top: 80px; 
+    
+                                       /* Mantenha a imagem do banner principal aqui */
+    background-image: url('img/Imagem\ do\ WhatsApp\ de\ 2025-11-25\ à\(s\)\ 21.04.45_44fdbe1e.jpg');
+    
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+                                          /* EFEITO DEGRADE NA TRANSIÇÃO PARA O AZUL */
+.banner-inicial::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0) 70%,   
+        rgba(2, 5, 11, 0.8) 90%, 
+        #02050b 100%             
+    );
+    pointer-events: none;
+}
+
+                                                  /* --- 2. SEÇÃO SOBRE --- */
+.sobre-mim {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 50px;
+    gap: 50px;
+    background: transparent; 
+}
+
+                                 /*  NOVO: ESTILO PARA MISTURAR A IMAGEM COM O FUNDO  */
+.sobre-image-wrapper {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+                                  /* Remover a borda e a sombra nítida (se houver) */
+    border-radius: 0; 
+    
+                                 /* ANIMAÇÃO: Adiciona uma sombra suave que pulsa */
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); 
+    animation: foco-suave 5s ease-in-out infinite; 
+}
+
+                                        /* LOCAL DA TAG/HASHTAG SOBRE A FOTO */
+.tag-overlay {
+    position: absolute;
+    top: 50px; 
+    left: 20px; 
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: #bf9b30; 
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sobre-image-wrapper img {
+    width: 100%;
+                                      /* REMOVIDO: Borda e Box-shadow nítidas */
+    border-radius: 0; 
+    box-shadow: none;
+    
+                         /* Usar um 'mask' ou box-shadow para misturar as bordas */
+                        /* Usamos 'mix-blend-mode' para o efeito de mistura e 'filter' para ajustar */
+    mix-blend-mode: screen; 
+    filter: brightness(1.2) contrast(1.1);
+
+                                          /* ANIMAÇÃO: flutuação como uma animação */
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+.sobre-content {
+    flex: 1;
+    max-width: 600px;
+}
+.sobre-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.sobre-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+                                          /* Botão Saiba  */
+.btn-saiba-mais {
+    display: inline-flex;
+    align-items: center;
+    background-color: #6b6b6b;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    position: relative;
+    clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+    transition: transform 0.2s;
+}
+.btn-saiba-mais::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 15px; 
+    background-color: #bf9b30; 
+    z-index: -1;
+}
+.btn-saiba-mais:hover {
+    transform: scale(1.05);
+}
+
+                                    /* --- 3. FRASE --- */
+.quote-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+.quote-section h2 {
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+                                     /* --- 4. GALERIA --- */
+.galley {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 50px 100px 50px;
+    flex-wrap: wrap;
+}
+.card {
+    width: 300px;
+    height: 350px;
+    border: 4px solid #8A2BE2; 
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+                        /* RESPONSIVO (mantido) */
+@media (max-width: 768px) {
+    header { padding: 20px; }
+    nav ul { display: none; }
+    .sobre-mim {
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner-inicial { height: 60vh; }
+    .banner-inicial::after { height: 60vh; }
+}
+
+                         /* --- DEFINIÇÕES DE ANIMAÇÃO --- */
+
+                    /* 1. Animação de Sombra/Foco Pulsante (no container) */
+@keyframes foco-suave {
+    0% {
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+                /* Aumenta a sombra e adiciona um leve brilho azulado para reforçar o foco */
+        box-shadow: 0 0 120px rgba(135, 206, 250, 0.4), 0 0 150px rgba(0, 0, 0, 0.7); 
+    }
+    100% {
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    }
+}
+
+                                /* 2. Animação de Flutuação Suave (na imagem) */
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
